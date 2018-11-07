@@ -25,8 +25,7 @@ public class SparksConfigApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		List<String> cluster = appArgs.getOptionValues("cluster");
 		System.out.println("cluster:"+cluster.get(0));
-		List<String> keyspace = appArgs.getOptionValues("keyspace");
-		System.out.println("keyspace:"+keyspace.get(0));
+		System.out.println("keyspace:"+cluster.get(1));
 		
 	}
 }
