@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
 
 import org.apache.commons.lang3.StringUtils;
@@ -63,7 +64,7 @@ public class ACSCourseMigrator {
 
 		}
 
-		if (targetCluster == null) {
+		if (Objects.isNull(targetCluster)) {
 
 			targetCluster = properties.getProperty("ACSCourceMigratorTargetCluster");
 
