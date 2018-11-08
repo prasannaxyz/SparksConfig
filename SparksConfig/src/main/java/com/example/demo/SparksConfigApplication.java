@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.vo.GlobalProperties;
+import com.example.demo.vo.GlobalProperties;
 
 @SpringBootApplication
 public class SparksConfigApplication implements CommandLineRunner {

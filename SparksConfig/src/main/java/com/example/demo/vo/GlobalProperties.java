@@ -1,4 +1,4 @@
-package com.example.vo;
+package com.example.demo.vo;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
