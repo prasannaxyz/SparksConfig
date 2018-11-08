@@ -23,7 +23,7 @@ public class SparksConfigApplication implements CommandLineRunner {
 	@Autowired
 	ApplicationArguments appArgs;
 
-	private GlobalProperties global;
+	private static GlobalProperties global;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SparksConfigApplication.class, args);
