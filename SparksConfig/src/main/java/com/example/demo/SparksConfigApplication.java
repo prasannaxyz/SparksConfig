@@ -14,11 +14,11 @@ import com.example.demo.vo.GlobalProperties;
 @SpringBootApplication
 public class SparksConfigApplication implements CommandLineRunner {
 
-	private static String cluster = System.getenv("e_cluster");
-	private static String keyspace = System.getenv("e_keyspace");
-	private static String readTimeout = System.getenv("e_readTimeout");
-	private static String compression = System.getenv("e_compression");
-	private static String connectionPerExecutorMax = System.getenv("e_connectionPerExecutorMax");
+	private static String cluster = System.getenv("env_cluster");
+	private static String keyspace = System.getenv("env_keyspace");
+	private static String readTimeout = System.getenv("env_readTimeout");
+	private static String compression = System.getenv("env_compression");
+	private static String connectionPerExecutorMax = System.getenv("env_connectionPerExecutorMax");
 
 	@Autowired
 	ApplicationArguments appArgs;
