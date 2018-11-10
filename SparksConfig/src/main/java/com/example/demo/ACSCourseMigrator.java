@@ -4,33 +4,19 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class ACSCourseMigrator {
 
 	private static Properties properties = getSparkConfigProperties();
 
-	private static String cluster = System.getenv("env_cluster");
-
-	private static String targetCluster = System.getenv("env_targetCluster");
-
-	private static String keyspace = System.getenv("env_keyspace");
-
-	private static String targetKeyspace = System.getenv("env_targetKeyspace");
-
-	private static String sourceTable = properties.getProperty("ACSCourceMigratorSourceTable");
-
-	private static String targetTable = properties.getProperty("ACSCourceMigratorTargetTable");
-
-	private static String sumatraKey = properties.getProperty("ACSCourceMigratorSumatraKey");
-
-	private static String revelKey = properties.getProperty("ACSCourceMigratorRevelKey");
+	private static String cluster = System.getenv("cluster");
 
 	private static String readTimeout = properties.getProperty("readTimeout");
 
-	private static String compression = properties.getProperty("compression");
+	private static String keyspace = System.getenv("keyspace");
 
 	private static String connectionPerExecutorMax = properties.getProperty("connectionsPerExecutorMax");
+
+	private static String compression = properties.getProperty("compression");
 
 	public static Properties getSparkConfigProperties() {
 
@@ -50,44 +36,13 @@ public class ACSCourseMigrator {
 
 	}
 
-	public void run(String sourceKeyspace, String sourceCluster, String targetCluster, String targetKeySpace) {
-
-		if (sourceKeyspace == null) {
-
-			sourceKeyspace = properties.getProperty("ACSCourceMigratorKeyspace");
-
-		}
-
-		if (sourceCluster == null) {
-
-			sourceCluster = properties.getProperty("ACSCourceMigratorSourceCluster");
-
-		}
-
-		if (Objects.isNull(targetCluster)) {
-
-			targetCluster = properties.getProperty("ACSCourceMigratorTargetCluster");
-
-		}
-
-		if (targetKeySpace == null) {
-
-			targetKeySpace = properties.getProperty("ACSCourceMigratorTargetKeyspace");
-
-		}
-
-		System.out.println("sourceCluster:" + sourceCluster);
-		System.out.println("targetCluster:" + targetCluster);
-		System.out.println("sourceKeyspace:" + sourceKeyspace);
-		System.out.println("targetKeyspace:" + targetKeySpace);
-
-	}
-
 	public static void main(String[] args) {
 
-		ACSCourseMigrator acsMigrate = new ACSCourseMigrator();
-
-		acsMigrate.run(keyspace, cluster, targetCluster, targetKeyspace);
+		System.out.println(cluster);
+		System.out.println(readTimeout);
+		System.out.println(keyspace);
+		System.out.println(connectionPerExecutorMax);
+		System.out.println(compression);
 
 	}
 
