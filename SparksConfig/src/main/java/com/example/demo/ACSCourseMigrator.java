@@ -8,11 +8,11 @@ public class ACSCourseMigrator {
 
 	private static Properties properties = getSparkConfigProperties();
 
-	private static String cluster = System.getenv("cluster");
+	private static String cluster = System.getProperty("cluster");
 
 	private static String readTimeout = properties.getProperty("readTimeout");
 
-	private static String keyspace = System.getenv("keyspace");
+	private static String keyspace = System.getProperty("keyspace");
 
 	private static String connectionPerExecutorMax = properties.getProperty("connectionsPerExecutorMax");
 
