@@ -19,11 +19,11 @@ public class SparksConfigApplication implements CommandLineRunner {
 	private static String readTimeout = System.getenv("readTimeout");
 	private static String compression = System.getenv("compression");
 	private static String connectionPerExecutorMax = System.getenv("connectionPerExecutorMax");
+	
+	private static Properties properties=getSparkConfigProperties();
 
 	@Autowired
 	ApplicationArguments appArgs;
-
-	private static GlobalProperties global;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SparksConfigApplication.class, args);
@@ -38,18 +38,14 @@ public class SparksConfigApplication implements CommandLineRunner {
 		System.out.println("compression:" + compression);
 		System.out.println("connectionPerExecutorMax:" + connectionPerExecutorMax);
 		
+		//Properties properties = getSparkConfigProperties();
 		System.out.println("**Local Parameters*********");
-		System.out.println("cluster:" + global.getCluster());
-		System.out.println("keyspace:" + global.getKeyspace());
-		System.out.println("readTimeout:" + global.getReadTimeout());
-		System.out.println("compression:" + global.getCompression());
-		System.out.println("connectionPerExecutorMax:" + global.getConnectionPerExecutorMax());
+		System.out.println("cluster:" + properties.getProperty("cluster"));
+		System.out.println("keyspace:" +  properties.getProperty("keyspace"));
+		System.out.println("readTimeout:" +  properties.getProperty("readTimeout"));
+		System.out.println("compression:" +  properties.getProperty("compression"));
+		System.out.println("connectionPerExecutorMax:" +  properties.getProperty("connectionPerExecutorMax"));
 
-	}
-
-	@Autowired
-	public void setGlobal(GlobalProperties global) {
-		this.global = global;
 	}
 
 	public static Properties getSparkConfigProperties() {
@@ -64,5 +60,7 @@ public class SparksConfigApplication implements CommandLineRunner {
 
 		return properties;
 	}
+	
+	
 
 }
